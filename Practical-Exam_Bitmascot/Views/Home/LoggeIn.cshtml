@@ -1,0 +1,77 @@
+﻿@model Practical_Exam_Bitmascot.Models.UserProfileModel
+@{
+    ViewBag.Title = "LoggeIn";
+}
+
+<div class="col-md-3 col-md-offset-0">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Option </h3>
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked">
+                <li>@Html.ActionLink("Profile", "LoggeIn", "Home")</li>
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Home")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-md-offset-1">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="text-center panel-title">Profile</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.FirstName)
+                </div>
+                <div class="col-sm-9" >
+                    @Html.DisplayFor(model => model.FirstName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                <div class="col-sm-9" >
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="col-sm-9" >
+                    @Html.DisplayFor(model => model.Address)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.Phone)
+                </div>
+                <div class="col-sm-9" >
+                    @Html.DisplayFor(model => model.Phone)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" >
+                    @Html.LabelFor(model => model.Dob)
+                </div>
+                <div class="col-sm-9" >
+                    @Html.DisplayFor(model => model.Dob)
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@model Practical_Exam_Bitmascot.Models.LoginModel
+
+@if (TempData["Loginmsg"] != null)
+{
+    <script type="text/javascript">
+       alert("@TempData["Loginmsg"]");
+    </script>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="col-md-1 col-md-offset-6"><img class="img-responsive" src="~/Content/assets/img/user.png" width="100px"></div>
+        <div class="col-md-5 col-md-offset-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="text-center panel-title">Login Panel</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-md-8 col-md-offset-2" })
+                                <div class="col-md-8 col-md-offset-2">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-md-8 col-md-offset-2" })
+                                <div class="col-md-8 col-md-offset-2">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-8 col-md-offset-2">
+
+                                    <button class="btn btn-success" type="submit">Login </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="form-group"></div>
+
+                            </div>
+
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="form-group"></div>
+                                
+                                <label><a href="/Home/Register">Click for Registration</a></label>
+                            </div>
+
+
+
+                            <figure></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+}
+<script src="~/Content/assets/js/jquery.min.js"></script>
+<script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>

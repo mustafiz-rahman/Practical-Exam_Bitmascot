@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+    
+    <title>Practical Solution</title>
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link" href="#">Bitmascot Practical Exam</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            @if (Session["Email"] != null) { 
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">@Session["Email"] <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            
+                            
+                            <li role="presentation">@Html.ActionLink("Logout","Logout","Home")</li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav"></ul>
+            </div>
+            }
+        </div>
+    </nav>
+
+    
+    <hr>
+    <br>
+    @RenderBody()
+
+
+    
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
