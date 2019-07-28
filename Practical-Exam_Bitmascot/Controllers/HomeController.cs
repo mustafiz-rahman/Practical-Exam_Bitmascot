@@ -33,10 +33,15 @@ namespace Practical_Exam_Bitmascot.Controllers
                 return RedirectToAction("LoggeIn");
 
                 }
+                else if(loginmodel.Email== "admin@localhost.local" && loginmodel.Password=="admin")
+                {
+                Session["Email"] = loginmodel.Email.ToString();
+                return RedirectToAction("Index","Admin");
+                }
                 else
                 {
                 TempData["loginmsg"] = " Wrong Email or Password ";
-            }
+                }
             
             return View();
         }

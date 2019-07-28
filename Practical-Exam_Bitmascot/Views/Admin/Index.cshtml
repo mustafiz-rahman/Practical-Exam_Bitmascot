@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Practical_Exam_Bitmascot.signUpInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">User List</h3>
+            </div>
+            <div class="panel-body">
+                <span> </span>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                            <input type="text" id="Search" placeholder="Search here" class="form-control" />
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="search">
+                                    <td><p> @item.FirstName @item.LastName</p></td>
+                                    @{
+                                        var age = DateTime.Today.Year - Convert.ToDateTime(item.Dob).Year;
+                                        <td>@age</td>
+                                    }
+
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+
+            $(".search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+
+                    $(this).hide();
+                }
+                else { $(this).show(); }
+
+
+
+
+            });
+
+        });
+
+
+    });
+</script>
+
